@@ -40,7 +40,7 @@ pipeline{
         stage("Create a Task"){
             steps{
                 script{
-                    sh 'sudo ecs run SharjeeLcluster sharjeel_task_def:latest --region us-west-1'
+                    sh "ecs run SharjeeLcluster sharjeel_task_def:latest --region us-west-1"
                 }
             }
         }
