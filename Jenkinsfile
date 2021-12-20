@@ -1,9 +1,7 @@
 
 pipeline{
     agent any
-    tools {
-        
-    }
+    
     environment {
         registry = "public.ecr.aws/y2a9o9h4/sharjeel"
         AWS_ACCOUNT_ID = "489994096722"
