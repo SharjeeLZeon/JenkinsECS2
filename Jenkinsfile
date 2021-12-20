@@ -37,6 +37,20 @@ pipeline{
             }
         }
 
+
+
+
+        stage("Which ECS"){
+            steps{
+                script{
+                    sh "which ecs"
+                }
+            }
+        }
+
+
+
+
         stage("Create a Task"){
             steps{
                 script{
