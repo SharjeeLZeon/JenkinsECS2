@@ -1,0 +1,10 @@
+Instance typet2.micro
+Desired number of instances2
+Key pair
+ECS AMI IDami-0a2c844e6bc854d96
+VPCvpc-054a51bcaa028b84d
+Subnetssubnet-068e6611c095b32a4, subnet-0f833d07bacfe0106
+VPC Availability Zonesus-west-1a, us-west-1c
+Security groupsg-005f037544c90f765
+Launch configurationEC2ContainerService-SharjeeLcluster-EcsInstanceLc-1WRGRH9K4ZHUY
+Auto Scaling groupEC2ContainerService-SharjeeLcluster-EcsInstanceAsg-12KSIII7E1M7Q
