@@ -46,6 +46,15 @@ pipeline{
         }
 
 
+        stage("Update Task and defination"){
+            steps{
+                script{
+                    sh "ecs deploy SharjeeLcluster sharjeelservice"
+                }
+            }
+        }
+
+
 
     }
 
