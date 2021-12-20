@@ -37,6 +37,25 @@ pipeline{
             }
         }
 
+
+        stage("Which ECS"){
+            steps{
+                script{
+                    sh "which ecs"
+                }
+            }
+        }
+
+
+        stage("Create a Task"){
+            steps{
+                script{
+                    sh "ecs run SharjeeLcluster sharjeel_task_def --region us-west-1"
+                }
+            }
+        }
+
+
         stage("Create a Task"){
             steps{
                 script{
