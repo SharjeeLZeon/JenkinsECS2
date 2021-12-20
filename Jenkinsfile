@@ -1,7 +1,7 @@
 
 pipeline{
     agent any
-    
+
     environment {
         registry = "public.ecr.aws/y2a9o9h4/sharjeel"
         AWS_ACCOUNT_ID = "489994096722"
@@ -15,7 +15,7 @@ pipeline{
         stage("Login with ECR"){
             steps{
                 script{
-                    sh "aws ecr get-login-password — region ${AWS_DEFAULT_REGION} | docker login — username AWS — password-stdin ${AWS_ACCOUNT_ID}.dkr.ecr.${AWS_DEFAULT_REGION}.amazonaws.com"
+                    sh "aws ecr get-login-password --region us-west-1 | docker login --username AWS --password-stdin 489994096722.dkr.ecr.us-west-1.amazonaws.com"
                 }
             }
         }
