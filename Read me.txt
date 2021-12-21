@@ -62,5 +62,5 @@ Github link: https://github.com/fabfuel/ecs-deploy
 
 
 FROM httpd:2.4
-ARG REPO=489994096722.dkr.ecr.us-west-1.amazonaws.com
-FROM ${REPO}/sharjeel:latest
+ARG REPO=489994096722.dkr.ecr.us-east-2.amazonaws.com
+FROM ${REPO}/sharjeel:apache
