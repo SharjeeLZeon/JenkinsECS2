@@ -48,25 +48,21 @@ pipeline{
             }
         }
 
-
-        stage("Switch User"){
+        stage("Proceed or not"){
             steps{
                 script{
-                    sh "su ubuntu"
+                    input("Proceed or terminate")
                 }
             }
         }
 
-
-        stage("Whoami again"){
+        stage("Create a Task"){
             steps{
                 script{
-                    sh "su ubuntu"
-                    sh "whoami"
+                    sh "ecs run sharjeelcluster sharjeelTaskDef --region us-east-2"
                 }
             }
         }
-
 
 
         stage("Proceed or not"){
@@ -76,32 +72,6 @@ pipeline{
                 }
             }
         }
-
-        stage("Which ECS"){
-            steps{
-                script{
-                    sh "which ecs"
-                }
-            }
-        }
-
-        stage("Version ECS"){
-            steps{
-                script{
-                    sh "ecs -v"
-                }
-            }
-        }
-
-
-        stage("Create a Task"){
-            steps{
-                script{
-                    sh "ecs run SharjeeLcluster sharjeel_task_def --region us-west-1"
-                }
-            }
-        }
-
 
         stage("Update Service"){
             steps{
