@@ -51,7 +51,7 @@ pipeline{
         stage("Version ECS"){
             steps{
                 script{
-                    sh "ecs --version"
+                    sh "ecs -v"
                 }
             }
         }
