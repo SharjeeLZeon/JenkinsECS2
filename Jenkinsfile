@@ -11,7 +11,7 @@ pipeline{
         IMAGE_REPO_NAME = "sharjeel"
         IMAGE_TAG = "apache"
         REPOSITORY_URI = '${AWS_ACCOUNT_ID}.dkr.ecr.${AWS_DEFAULT_REGION}.amazonaws.com/${IMAGE_REPO_NAME}'
-        REVISION = 3
+        REVISION = 4
     }
     stages{
 
