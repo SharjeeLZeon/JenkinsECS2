@@ -48,7 +48,13 @@ pipeline{
             }
         }
 
-
+        stage("Version ECS"){
+            steps{
+                script{
+                    sh "ecs --version"
+                }
+            }
+        }
 
 
         stage("Create a Task"){
