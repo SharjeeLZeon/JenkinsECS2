@@ -9,7 +9,7 @@ pipeline{
         AWS_ACCOUNT_ID = "489994096722"
         AWS_DEFAULT_REGION = "us-east-2"
         IMAGE_REPO_NAME = "sharjeel"
-        IMAGE_TAG = "apache"
+        IMAGE_TAG = "latest"
         REPOSITORY_URI = '${AWS_ACCOUNT_ID}.dkr.ecr.${AWS_DEFAULT_REGION}.amazonaws.com/${IMAGE_REPO_NAME}'
         REVISION = 4
     }
@@ -58,11 +58,36 @@ pipeline{
         }
 
 
+        stage("Image tag change"){
+            steps{
+                script{
+                    sh "ecs deploy sharjeelcluster sharjeelservice -t latest"
+                }
+            }
+        }
+
+
+        stage("Proceed or not2"){
+            steps{
+                script{
+                    input("Proceed or terminate")
+                }
+            }
+        }
+
+
+        stage("Update image im a container"){
+            steps{
+                script{
+                    sh "ecs deploy sharjeelcluster sharjeelservice --image apache nginx:1.11.8 --timeout 600"
+                }
+            }
+        }
 
         stage("Update Service"){
             steps{
                 script{
-                    sh "ecs deploy sharjeelcluster sharjeelservice --image apache nginx:1.11.8 --timeout 600"
+                    sh "ecs deploy sharjeelcluster sharjeelservice --task arn:aws:ecs:us-east-2:489994096722:task-definition/sharjeeltask:${REVISION} --timeout 600"
                 }
             }
         }
