@@ -51,7 +51,6 @@ pipeline{
         stage("Version ECS"){
             steps{
                 script{
-                    sh 'cd /home/ubuntu/.local/bin/'
                     sh "ecs -v"
                 }
             }
