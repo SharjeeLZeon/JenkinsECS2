@@ -38,7 +38,21 @@ pipeline{
         }
 
 
+        stage("Whoami"){
+            steps{
+                script{
+                    sh "whoami"
+                }
+            }
+        }
 
+        stage("Proceed or not"){
+            steps{
+                script{
+                    input("Proceed or terminate")
+                }
+            }
+        }
 
         stage("Which ECS"){
             steps{
