@@ -1,1 +1,1 @@
-FROM httpd:2.4
+FROM alpine:3.14

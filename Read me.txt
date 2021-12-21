@@ -56,3 +56,8 @@ Github link: https://github.com/fabfuel/ecs-deploy
 3. Before using the plugin it will ask to install one one plugin use that
 4. ecs deploy sharjeelcluster sharjeelservice --timeout 600 (timeout is necessary otherwise the pipeline will fail) && (this To redeploy a service without any modifications, but pulling the most recent image versions, run the follwing command. This will duplicate the current task definition and cause the service to redeploy all running tasks)
 5. Most important note use command which ecs it will show the path where it is installed give chmod 777 permissions to all of them.
+
+
+FROM httpd:2.4
+ARG REPO=489994096722.dkr.ecr.us-west-1.amazonaws.com
+FROM ${REPO}/sharjeel:latest
