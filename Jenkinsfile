@@ -61,7 +61,7 @@ pipeline{
         stage("Update Service"){
             steps{
                 script{
-                    sh "ecs deploy sharjeelcluster sharjeelservice:4 --timeout 600"
+                    sh "ecs deploy sharjeelcluster sharjeelservice --task sharjeelTaskDef:4 --timeout 600"
                 }
             }
         }
