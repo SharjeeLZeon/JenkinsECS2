@@ -62,7 +62,7 @@ pipeline{
         stage("Update Service"){
             steps{
                 script{
-                    sh "ecs deploy sharjeelcluster sharjeelservice --task arn:aws:ecs:us-east-2:489994096722:task-definition/sharjeeltask:${REVISION} --timeout 600"
+                    sh "ecs deploy sharjeelcluster sharjeelservice --task arn:aws:ecs:us-east-2:489994096722:task-definition/sharjeeltask ${REVISION} --timeout 600"
                 }
             }
         }
