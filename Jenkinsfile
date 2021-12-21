@@ -11,6 +11,7 @@ pipeline{
         IMAGE_REPO_NAME = "sharjeel"
         IMAGE_TAG = "apache"
         REPOSITORY_URI = '${AWS_ACCOUNT_ID}.dkr.ecr.${AWS_DEFAULT_REGION}.amazonaws.com/${IMAGE_REPO_NAME}'
+        REVISION = "3"
     }
     stages{
 
@@ -61,7 +62,7 @@ pipeline{
         stage("Update Service"){
             steps{
                 script{
-                    sh "ecs deploy sharjeelcluster sharjeelservice --task arn:aws:ecs:us-east-2:489994096722:task-definition/sharjeeltask:"${3}" --timeout 600"
+                    sh "ecs deploy sharjeelcluster sharjeelservice --task arn:aws:ecs:us-east-2:489994096722:task-definition/sharjeeltask:${REVISION} --timeout 600"
                 }
             }
         }
