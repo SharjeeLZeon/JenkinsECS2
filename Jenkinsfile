@@ -65,7 +65,7 @@ pipeline{
         }
 
 
-        stage("Proceed or not"){
+        stage("Proceed or not 2"){
             steps{
                 script{
                     input("Proceed or terminate")
@@ -76,7 +76,7 @@ pipeline{
         stage("Update Service"){
             steps{
                 script{
-                    sh "ecs deploy SharjeeLcluster sharjeelservice"
+                    sh "ecs deploy sharjeelcluster sharjeelservice"
                 }
             }
         }
