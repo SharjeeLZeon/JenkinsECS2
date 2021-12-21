@@ -56,10 +56,12 @@ pipeline{
             }
         }
 
-        stage("Create a Task"){
+
+
+        stage("Update Service"){
             steps{
                 script{
-                    sh "ecs run sharjeelcluster sharjeelTaskDef --region us-east-2"
+                    sh "ecs deploy sharjeelcluster sharjeelservice"
                 }
             }
         }
@@ -73,13 +75,14 @@ pipeline{
             }
         }
 
-        stage("Update Service"){
+        stage("Create a Task"){
             steps{
                 script{
-                    sh "ecs deploy sharjeelcluster sharjeelservice"
+                    sh "ecs run sharjeelcluster sharjeelTaskDef --region us-east-2"
                 }
             }
         }
+
 
 
     }
