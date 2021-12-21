@@ -1,0 +1,56 @@
+Below are the steps which will help in deploying docker container (image anyone currently using apache) on ECS using Jenkins Pipeline.
+
+Prerequisite:
+1. Install Jenkins
+2. Install docker (after installing docker run command "sudo chmod 666 /var/run/docker.sock" to give pemission)
+3. Install wget
+4. Install unzip
+5. Install pip
+6. Use Plugin ecs-deploy
+7. Create a task defination and also ecs cluster with service
+8. Attach policy to the instance where you will run the commands policy is "AmazonECS_FullAccess"
+
+
+Jenkins:
+Below are the steps to install jenkins on ubuntu :
+Article1 link: https://www.ktexperts.com/how-to-install-jenkins-on-ubuntu-20-04/
+Article2 link: https://www.digitalocean.com/community/tutorials/how-to-install-jenkins-on-ubuntu-18-04
+
+1. sudo apt-get update -y
+2. sudo apt-get install openjdk-8-jdk
+3. java -version
+4. readlink -f $(which java)
+5. AVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64/jre/bin/java (here path is just for example lace your path which you get from which java command in step 4)
+6. export JAVA_HOME
+7. PATH=$PATH:$JAVA_HOME
+8. wget -q -O - https://pkg.jenkins.io/debian-stable/jenkins.io.key | sudo apt-key add -
+9. sudo sh -c 'echo deb http://pkg.jenkins.io/debian-stable binary/ > /etc/apt/sources.list.d/jenkins.list'
+10. sudo apt-get update
+11. sudo apt-get install jenkins
+12. sudo service jenkins start
+13. sudo service jenkins status
+14. sudo systemctl enable jenkins (sudo systemctl enable jenkins<br />)
+15. sudo cat /var/lib/jenkins/secrets/initialAdminPassword (this command will display the token which you will use in Jenkins UI to unlock jenkins)
+
+
+
+
+Docker:
+Below are the steps to install docker on ubuntu:
+Article link: https://www.simplilearn.com/tutorials/docker-tutorial/how-to-install-docker-on-ubuntu
+
+1. sudo apt-get update
+2. sudo apt install docker.io
+3. sudo snap install docker
+4. docker --version
+
+
+Plugin ecs-deploy:
+Below are the steps to install and use ecs-deploy plugin:
+Github link: https://github.com/fabfuel/ecs-deploy
+
+1. sudo apt install pip
+2. pip install ecs-deploy
+3. Before using the plugin it will ask to install one one plugin use that
+4. ecs deploy sharjeelcluster sharjeelservice --timeout 600 (timeout is necessary otherwise the pipeline will fail) && (this To redeploy a service without any modifications, but pulling the most recent image versions, run the follwing command. This will duplicate the current task definition and cause the service to redeploy all running tasks)
+5. Most important note use command which ecs it will show the path where it is installed give chmod 777 permissions to all of them.

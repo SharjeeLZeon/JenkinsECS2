@@ -66,25 +66,6 @@ pipeline{
             }
         }
 
-
-        stage("Proceed or not 2"){
-            steps{
-                script{
-                    input("Proceed or terminate")
-                }
-            }
-        }
-
-        stage("Create a Task"){
-            steps{
-                script{
-                    sh "ecs run sharjeelcluster sharjeelTaskDef --region us-east-2"
-                }
-            }
-        }
-
-
-
     }
 
 }
