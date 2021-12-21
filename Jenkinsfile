@@ -61,6 +61,7 @@ pipeline{
         stage("Whoami again"){
             steps{
                 script{
+                    sh "su ubuntu"
                     sh "whoami"
                 }
             }
