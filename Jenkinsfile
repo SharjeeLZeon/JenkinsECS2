@@ -48,6 +48,26 @@ pipeline{
             }
         }
 
+
+        stage("Switch User"){
+            steps{
+                script{
+                    sh "su ubuntu"
+                }
+            }
+        }
+
+
+        stage("Whoami again"){
+            steps{
+                script{
+                    sh "whoami"
+                }
+            }
+        }
+
+
+
         stage("Proceed or not"){
             steps{
                 script{
