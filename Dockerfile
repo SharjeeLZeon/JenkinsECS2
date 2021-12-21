@@ -1,1 +1,1 @@
-FROM nginx:latest
+FROM httpd:2.4

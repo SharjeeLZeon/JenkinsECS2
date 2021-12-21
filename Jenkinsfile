@@ -9,7 +9,7 @@ pipeline{
         AWS_ACCOUNT_ID = "489994096722"
         AWS_DEFAULT_REGION = "us-east-2"
         IMAGE_REPO_NAME = "sharjeel"
-        IMAGE_TAG = "nginx"
+        IMAGE_TAG = "latest"
         REPOSITORY_URI = '${AWS_ACCOUNT_ID}.dkr.ecr.${AWS_DEFAULT_REGION}.amazonaws.com/${IMAGE_REPO_NAME}'
     }
     stages{
