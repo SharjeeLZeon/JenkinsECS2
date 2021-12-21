@@ -5,7 +5,7 @@ pipeline{
     dockerTool 'docker'
     }
     environment {
-        registry = "public.ecr.aws/y2a9o9h4/sharjeel"
+        registry = "489994096722.dkr.ecr.us-east-2.amazonaws.com/sharjeel"
         AWS_ACCOUNT_ID = "489994096722"
         AWS_DEFAULT_REGION = "us-east-2"
         IMAGE_REPO_NAME = "sharjeel"
