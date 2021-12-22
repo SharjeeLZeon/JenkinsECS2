@@ -61,7 +61,7 @@ pipeline{
         stage("Image tag change"){
             steps{
                 script{
-                    sh "ecs deploy sharjeelcluster sharjeelservice -t latest"
+                    sh "ecs deploy sharjeelcluster sharjeelservice -t latest --timeout 600"
                 }
             }
         }
